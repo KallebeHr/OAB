@@ -1,426 +1,451 @@
 <template>
-  <div class="contato-container">
-    <!-- Lado Esquerdo -->
-    <div class="painel-esquerdo">
-      <div class="cabecalho-esquerdo">
-        <h1>Escritório LOGO</h1>
-        <p>Excelência, ética e compromisso com seus direitos.</p>
+  <section class="contatos-section" id="contato">
+    <div class="container">
+      
+      <!-- Título da Seção -->
+      <div class="header-contato">
+        <h2 class="section-title">Fale Connosco</h2>
+        <p class="section-subtitle">
+          Tem alguma dúvida ou precisa de uma consulta jurídica? Envie-nos uma mensagem ou utilize os nossos contactos diretos.
+        </p>
       </div>
 
-      <div class="circulo-avatares">
-        <div class="fundo-circulos">
-          <img v-for="(avatar, index) in avatares" :key="index" :src="avatar" class="avatar" :class="`avatar-${index + 1}`" />
+      <!-- Wrapper Principal (Formulário + Informações) -->
+      <div class="contatos-wrapper">
+        
+        <!-- 1. Formulário de Contato -->
+        <div class="form-card">
+          <h3 class="card-title">Envie-nos uma Mensagem</h3>
+          <form @submit.prevent="submitForm" class="contact-form">
+            
+            <div class="form-group">
+              <label for="nome">Nome Completo</label>
+              <input 
+                type="text" 
+                id="nome" 
+                v-model="formData.nome" 
+                required 
+                placeholder="O seu nome"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input 
+                type="email" 
+                id="email" 
+                v-model="formData.email" 
+                required 
+                placeholder="O seu melhor e-mail"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input 
+                type="tel" 
+                id="telefone" 
+                v-model="formData.telefone" 
+                placeholder="(__) _____-____"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="assunto">Assunto</label>
+              <input 
+                type="text" 
+                id="assunto" 
+                v-model="formData.assunto" 
+                required
+                placeholder="Ex: Consulta sobre Divórcio"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="mensagem">Mensagem</label>
+              <textarea 
+                id="mensagem" 
+                v-model="formData.mensagem" 
+                rows="5" 
+                required 
+                placeholder="Descreva a sua situação legal..."
+              ></textarea>
+            </div>
+            
+            <button type="submit" class="submit-button" :disabled="isSubmitting">
+              <i class="fa-solid fa-paper-plane"></i>
+              {{ isSubmitting ? 'A Enviar...' : 'Enviar Mensagem' }}
+            </button>
+            
+            <!-- Feedback de Submissão -->
+            <div v-if="submitStatus === 'success'" class="feedback success">
+              Mensagem enviada com sucesso! Entraremos em contacto brevemente.
+            </div>
+            <div v-if="submitStatus === 'error'" class="feedback error">
+              Erro ao enviar. Por favor, tente novamente ou ligue para nós.
+            </div>
+
+          </form>
         </div>
-      </div>
-
-      <div class="redes-sociais">
-        <a href="#"><i class="fab fa-facebook-f"></i> /EscritorioAlmeida</a>
-        <a href="#"><i class="fab fa-linkedin-in"></i> /AlmeidaAdv</a>
-        <a href="#"><i class="fab fa-instagram"></i> @almeida.adv</a>
-      </div>
-    </div>
-
-    <!-- Lado Direito -->
-    <div class="painel-direito">
-      <h2>Entre em contato</h2>
-      <p>Preencha os dados abaixo e retornaremos em até 24 horas úteis.</p>
-
-      <form @submit.prevent="enviarMensagem">
-        <div class="linha">
-          <input type="text" placeholder="Nome" v-model="form.nome" required />
-          <input type="text" placeholder="Sobrenome" v-model="form.sobrenome" required />
-        </div>
-
-        <input type="email" placeholder="Endereço de e-mail" v-model="form.email" required />
-        <input type="tel" placeholder="(DDD) Número de telefone" v-model="form.numero" required />
-
-        <div class="linha">
-          <select v-model="form.tipoCliente" required>
-            <option value="">Pessoa Física</option>
-            <option>Pessoa Jurídica</option>
-          </select>
-
-          <select v-model="form.estado" required >
-            <option value="">Piauí</option>
-            <option>São Paulo</option>
-            <option>Rio de Janeiro</option>
-            <option>Outro estado</option>
-          </select>
-        </div>
-
-        <textarea placeholder="Escreva sua mensagem..." v-model="form.mensagem" required></textarea>
-
-        <label class="checkbox-wrapper">
-          <input type="checkbox" v-model="form.concorda" required />
-          <span class="label">Concordo com a <a href="#">política de privacidade</a></span>
-          <div class="checkmark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M20 6L9 17L4 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
+        
+        <!-- 2. Informações de Contato Diretas -->
+        <div class="info-card">
+          <h3 class="card-title">Informações de Contato</h3>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-map-marker-alt icon-info"></i>
+            <div>
+              <h4>Escritório Principal</h4>
+              <p>Rua dos Advogados, 123 - Centro<br>São Paulo, SP - CEP 01000-000</p>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+dos+Advogados,+123,+São+Paulo" 
+                 target="_blank" class="link-map">Ver no Mapa</a>
+            </div>
           </div>
-        </label>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-phone icon-info"></i>
+            <div>
+              <h4>Telefone para Consultas</h4>
+              <p>(11) 98765-4321</p>
+              <a href="tel:+5511987654321" class="link-tel">Ligar Agora</a>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-envelope icon-info"></i>
+            <div>
+              <h4>E-mail</h4>
+              <p>contacto@kallebemax.pt</p>
+              <a href="mailto:contacto@kallebemax.pt" class="link-email">Enviar E-mail</a>
+            </div>
+          </div>
 
-        <button type="submit">Enviar mensagem</button>
-      </form>
+          <div class="info-item">
+            <i class="fa-solid fa-clock icon-info"></i>
+            <div>
+              <h4>Horário de Atendimento</h4>
+              <p>Segunda a Sexta: 9h00 às 18h00</p>
+              <p class="nota">Atendimento Online 24/7 (via agendamento)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue';
 
-const form = ref({
+// Estado do formulário
+const formData = reactive({
   nome: '',
-  sobrenome: '',
   email: '',
-  numero: '',
-  tipoCliente: '',
-  estado: '',
-  mensagem: '',
-  concorda: false,
-})
+  telefone: '',
+  assunto: '',
+  mensagem: ''
+});
 
-const enviarMensagem = () => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  const telefoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/
+// Estado de submissão
+const isSubmitting = ref(false);
+const submitStatus = ref(null); // 'success', 'error', or null
 
-  if (form.value.nome.length < 2) return alert('Nome deve ter pelo menos 2 letras.')
-  if (form.value.sobrenome.length < 2) return alert('Sobrenome deve ter pelo menos 2 letras.')
-  if (!emailRegex.test(form.value.email)) return alert('E-mail inválido.')
-  if (!telefoneRegex.test(form.value.numero)) return alert('Número de telefone inválido.')
-  if (form.value.mensagem.length < 10) return alert('Mensagem muito curta.')
+const submitForm = async () => {
+  isSubmitting.value = true;
+  submitStatus.value = null;
 
-  console.log('Mensagem enviada:', form.value)
-  alert('Mensagem enviada com sucesso!')
-}
+  // 1. Simulação de Submissão (Em um projeto real, você faria um POST para um endpoint aqui)
+  // Exemplo de como usar a API fetch (se fosse um projeto em produção):
+  /*
+  try {
+    const response = await fetch('/api/send-contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      submitStatus.value = 'success';
+      // Limpar formulário após sucesso
+      Object.keys(formData).forEach(key => formData[key] = '');
+    } else {
+      submitStatus.value = 'error';
+    }
+  } catch (error) {
+    submitStatus.value = 'error';
+    console.error('Submission error:', error);
+  } finally {
+    isSubmitting.value = false;
+    // Opcional: remover feedback após alguns segundos
+    setTimeout(() => submitStatus.value = null, 5000);
+  }
+  */
+
+  // Simulação de delay para fins de demonstração
+  await new Promise(resolve => setTimeout(resolve, 2000)); 
+
+  // Simulação de sucesso (pode alternar para 'error' para testar)
+  const simulationSuccess = true; 
   
-const avatares = [
-  'https://i.pravatar.cc/100?img=10',
-  'https://i.pravatar.cc/100?img=11',
-  'https://i.pravatar.cc/100?img=12',
-  'https://i.pravatar.cc/100?img=13',
-  'https://i.pravatar.cc/100?img=14',
-  'https://i.pravatar.cc/100?img=15',
-  'https://i.pravatar.cc/100?img=16',
-]
+  if (simulationSuccess) {
+    submitStatus.value = 'success';
+    // Limpar formulário
+    Object.keys(formData).forEach(key => formData[key] = '');
+  } else {
+    submitStatus.value = 'error';
+  }
+
+  isSubmitting.value = false;
+  // Opcional: remover feedback após alguns segundos
+  setTimeout(() => submitStatus.value = null, 5000);
+};
+
 </script>
 
 <style scoped>
-.contato-container {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
+/* =========================================
+   🎨 VARIÁVEIS LOCAIS E IMPORTS
+   ========================================= */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+.contatos-section {
+  --primary-color: #e4002b; /* Vermelho - Destaque/Ação */
+  --secondary-color: #002b45; /* Azul Escuro - Texto/Estrutura */
+  --bg-color: #ffffff; /* Fundo branco */
+  padding: 5rem 1.5rem;
+  background-color: var(--bg-color);
 }
 
-/* Estilização mantida do seu código, com adições */
-.painel-esquerdo {
-  flex: 1;
-  background: #f4f4f4;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.cabecalho-esquerdo h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #222;
-}
-.cabecalho-esquerdo p {
-  font-size: 0.95rem;
-  color: #555;
-  margin-top: 0.5rem;
+.container {
+  max-width: 1200px;
+  margin: auto;
 }
 
-.circulo-avatares {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.fundo-circulos {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.avatar {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid white;
-}
-.avatar-1 { top: 0%; left: 50%; transform: translate(-50%, -50%); }
-.avatar-2 { top: 25%; left: 90%; transform: translate(-50%, -50%); }
-.avatar-3 { top: 70%; left: 100%; transform: translate(-50%, -50%); }
-.avatar-4 { bottom: 0%; left: 60%; transform: translate(-50%, 50%); }
-.avatar-5 { bottom: 15%; left: 15%; transform: translate(-50%, 50%); }
-.avatar-6 { top: 30%; left: 0%; transform: translate(-50%, -50%); }
-.avatar-7 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-
-.redes-sociais {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-}
-.redes-sociais a {
-  color: #333;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* =========================================
+   📝 TÍTULOS
+   ========================================= */
+.header-contato {
+  text-align: center;
+  margin-bottom: 3.5rem;
 }
 
-/* Painel direito */
-.painel-direito {
-  flex: 2;
-  background: #fc1f1f;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
 }
-.painel-direito h2 {
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   🧱 LAYOUT PRINCIPAL
+   ========================================= */
+.contatos-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start; /* Alinha no topo */
+}
+
+.form-card {
+  flex: 2 1 550px; /* Formulário maior */
+  background: #f8f8f8;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid var(--primary-color);
+}
+
+.info-card {
+  flex: 1 1 350px; /* Informações menor */
+  background: var(--secondary-color);
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
   font-size: 1.6rem;
-  color: #1e1e1e;
-  font-weight: bold;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 10px;
+  /* Linha de separação adaptativa */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
 }
-.painel-direito p {
-  font-size: 0.95rem;
-  color: #444;
+
+.form-card .card-title {
+    color: var(--secondary-color);
+    border-bottom-color: var(--primary-color);
 }
-form {
+
+/* =========================================
+   ✉️ FORMULÁRIO DE CONTATO
+   ========================================= */
+.contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 15px;
 }
-.linha {
+
+.form-group {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
 }
-input, select, textarea {
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background: white;
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
   font-size: 0.95rem;
-  width: 100%;
-  color: black;
-}
-textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-::placeholder {
-  color: #333;
-}
-/* From Uiverse.io by 3HugaDa3 */ 
-.checkbox-wrapper {
-  --checkbox-size: 25px;
-  --checkbox-color: whiter;
-  --checkbox-shadow: rgba(0, 255, 136, 0.3);
-  --checkbox-border: rgba(0, 255, 136, 0.7);
-  display: flex;
-  align-items: center;
-display: flex;
-flex-direction: column;
-  cursor: pointer;
-  padding: 10px;
 }
 
-.checkbox-wrapper input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkbox-wrapper .checkmark {
-  position: relative;
-  width: var(--checkbox-size);
-  height: var(--checkbox-size);
-  border: 2px solid var(--checkbox-border);
-  border-radius: 8px;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 15px var(--checkbox-shadow);
-  overflow: hidden;
-}
-
-.checkbox-wrapper .checkmark::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--checkbox-color), #f4f4f4);
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: scale(0) rotate(-45deg);
-}
-
-.checkbox-wrapper input:checked ~ .checkmark::before {
-  opacity: 1;
-  transform: scale(1) rotate(0);
-}
-
-.checkbox-wrapper .checkmark svg {
-  width: 0;
-  height: 0;
-  color: #1a1a1a;
-  z-index: 1;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
-}
-
-.checkbox-wrapper input:checked ~ .checkmark svg {
-  width: 18px;
-  height: 18px;
-  transform: rotate(360deg);
-}
-
-.checkbox-wrapper:hover .checkmark {
-  border-color: var(--checkbox-color);
-  transform: scale(1.1);
-  box-shadow:
-    0 0 20px var(--checkbox-shadow),
-    0 0 40px var(--checkbox-shadow),
-    inset 0 0 10px var(--checkbox-shadow);
-}
-
-.checkbox-wrapper input:checked ~ .checkmark {
-  animation: pulse 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 20px var(--checkbox-shadow);
-  }
-  50% {
-    transform: scale(0.9);
-    box-shadow:
-      0 0 30px var(--checkbox-shadow),
-      0 0 50px var(--checkbox-shadow);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 20px var(--checkbox-shadow);
-  }
-}
-
-.checkbox-wrapper .label {
-  margin-left: 15px;
-  font-family: "Segoe UI", sans-serif;
-  color: var(--checkbox-color);
-  font-size: 18px;
-  text-shadow: 0 0 10px var(--checkbox-shadow);
-  opacity: 0.9;
-  transition: all 0.3s;
-}
-
-.checkbox-wrapper:hover .label {
-  opacity: 1;
-  transform: translateX(5px);
-}
-
-/* Glowing dots animation */
-.checkbox-wrapper::after,
-.checkbox-wrapper::before {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--checkbox-color);
-  opacity: 0;
-  transition: all 0.5s;
-}
-
-.checkbox-wrapper::before {
-  left: -10px;
-  top: 50%;
-}
-
-.checkbox-wrapper::after {
-  right: -10px;
-  top: 50%;
-}
-
-.checkbox-wrapper:hover::before {
-  opacity: 1;
-  transform: translateX(-10px);
-  box-shadow: 0 0 10px var(--checkbox-color);
-}
-
-.checkbox-wrapper:hover::after {
-  opacity: 1;
-  transform: translateX(10px);
-  box-shadow: 0 0 10px var(--checkbox-color);
-}
-button {
-  background: #f4f4f4;
-  color: black;
-  padding: 0.75rem;
-  border: none;
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(228, 0, 43, 0.2);
+  outline: none;
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s;
-}
-button:hover {
-  background: #333;
-}
-select {
-  background-color: white;
-  color: #333;
-  border: 1px solid #ccc;
-}
-option {
-  background-color: white;
-  color: #333;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(228, 0, 43, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .contato-container {
-    flex-direction: column;
-  }
+.submit-button:hover:not(:disabled) {
+  background-color: #c90025; /* Vermelho mais escuro */
+  transform: translateY(-2px);
+}
 
-  .painel-esquerdo {
-    display: none;
-  }
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
 
-  .painel-direito {
-    padding: 2rem;
-  }
+/* Feedback */
+.feedback {
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: 600;
+    text-align: center;
+}
 
-  .linha {
-    flex-direction: column;
-  }
+.feedback.success {
+    background-color: #e6ffe6;
+    color: #008000;
+    border: 1px solid #008000;
+}
 
-  input, select, textarea {
-    font-size: 1rem;
-  }
+.feedback.error {
+    background-color: #ffe6e6;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+}
 
-  .painel-direito h2 {
-    font-size: 1.4rem;
-  }
+/* =========================================
+   ℹ️ INFORMAÇÕES DE CONTATO
+   ========================================= */
+.info-card .card-title {
+    border-bottom-color: white;
+}
 
-  .painel-direito p {
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.icon-info {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.info-item h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.info-item a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.info-item a:hover {
+    color: white;
+}
+
+.link-map {
+    color: #90ee90; /* Verde claro para mapa */
+}
+
+.nota {
     font-size: 0.9rem;
-  }
+    opacity: 0.8;
+}
 
-  button {
-    font-size: 1rem;
+/* =========================================
+   📱 RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 900px) {
+  .contatos-wrapper {
+    flex-direction: column;
+  }
+  .form-card, .info-card {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  .info-card {
+      order: -1; /* Mudar a ordem para que as informações fiquem primeiro em mobile */
+      margin-bottom: 20px;
   }
 }
 </style>

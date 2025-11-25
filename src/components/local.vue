@@ -1,85 +1,98 @@
 <template>
-  <div class="container">
-<header class="header-local">
-  <h1 class="titulo-header">
-    Selecione um dos locais para ver no mapa e obter a rota pelo Google Maps
-  </h1>
-  <div class="radio-inputs">
-    <label
-      v-for="(local, index) in locais"
-      :key="index"
-      class="radio"
-    >
-      <input
-        type="radio"
-        name="radio"
-        :value="local"
-        v-model="localSelecionado"
-      />
-      <span class="name">{{ local.nome }}</span>
-    </label>
-  </div>
-</header>
-    <div class="containerMap">
-      <div id="map"></div>
-      <div class="googleMap">
-        <div class="loader"></div>
-        
+  <section class="locais-section" id="locais">
+    <div class="container">
+      
+      <!-- Cabeçalho Didático -->
+      <div class="header-didatico">
+        <h1 class="titulo-principal">Localize e Planeie a Sua Visita em 3 Passos Simples</h1>
+        <p class="sub-titulo">Selecione o local desejado, visualize-o no mapa e obtenha a rota mais rápida.</p>
+      </div>
+
+      <!-- Passo 1: Seleção do Local -->
+      <div class="passo-selecao">
+        <h2 class="passo-titulo"><span class="numero">1</span> Escolha o Local de Interesse</h2>
+        <div class="radio-inputs">
+          <label
+            v-for="(local, index) in locais"
+            :key="index"
+            class="radio"
+          >
+            <input
+              type="radio"
+              name="radio"
+              :value="local"
+              v-model="localSelecionado"
+            />
+            <span class="name">{{ local.nome }}</span>
+          </label>
+        </div>
       </div>
       
-  <div class="card-endereco">
-    <h2 class="titulo-cidade">
-      <i class="fas fa-map-marker-alt"></i>
-      {{localSelecionado.cidade}}
-    </h2>
-    <p>
-      <i class="fas fa-location-dot"></i>
-      {{ localSelecionado.endereco }}
-    </p>
-    <p>
-      <i class="fas fa-city"></i>
-      {{ localSelecionado.bairro }}
-    </p>
-    <p>
-      <i class="fas fa-mail-bulk"></i>
-      {{ localSelecionado.cep }}
-    </p>
-    <p>
-      <i class="fas fa-user-tie"></i>
-      {{ localSelecionado.evento }}
-    </p>
-    <a
-  :href="googleMapsLink"
-  target="_blank"
-  rel="noopener"
-  class="btn-map"
->
-<button > Ver rota no Google Maps
-</button>
-  
-</a>
-  </div>
-  
+      <!-- Passo 2 & 3: Visualização e Ação -->
+      <div class="containerMap">
+        
+        <!-- Bloco do Mapa -->
+        <div class="map-wrapper">
+          <h2 class="passo-titulo"><span class="numero">2</span> Visualize no Mapa</h2>
+          <div id="map"></div>
+        </div>
+        
+        <!-- Bloco de Detalhes e Rota -->
+        <div class="card-wrapper">
+          <h2 class="passo-titulo"><span class="numero">3</span> Detalhes e Rota</h2>
+          <div class="card-endereco">
+            <h3 class="titulo-cidade">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              {{ localSelecionado.cidade }}
+            </h3>
+            <div class="detalhes">
+              <p>
+                <i class="fa-solid fa-map-pin"></i>
+                <span class="label">Endereço:</span> {{ localSelecionado.endereco }}
+              </p>
+              <p>
+                <i class="fa-solid fa-city"></i>
+                <span class="label">Bairro:</span> {{ localSelecionado.bairro }}
+              </p>
+              <p>
+                <i class="fa-solid fa-mail-bulk"></i>
+                <span class="label">CEP:</span> {{ localSelecionado.cep }}
+              </p>
+              <p>
+                <i class="fa-solid fa-user-tie"></i>
+                <span class="label">Pessoa de Contato:</span> {{ localSelecionado.evento }}
+              </p>
+            </div>
+            
+            <a
+              :href="googleMapsLink"
+              target="_blank"
+              rel="noopener"
+              class="btn-map"
+            >
+              <button> 
+                <i class="fa-solid fa-route"></i> Obter Rota no Google Maps
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    
-  </div>
+  </section>
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
-import L from 'leaflet'
+import { ref, watch, onMounted, computed } from 'vue'
+import L from 'leaflet' 
 import 'leaflet/dist/leaflet.css'
-import { computed } from 'vue'
 
-const googleMapsLink = computed(() => {
-  if (!localSelecionado.value || !localSelecionado.value.coords) return '#'
-  const [lat, lng] = localSelecionado.value.coords
-  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
-})
+// ===================================
+// 🗺️ DADOS DE LOCALIZAÇÃO (Mantidos)
+// ===================================
 const locais = [
   {
-    cidade:'São Paulo',
-    nome: 'Fórum Cível de São Paulo',
+    cidade:'São Paulo - SP',
+    nome: 'Fórum Cível de SP',
     coords: [-23.550520, -46.633308],
     endereco: 'Praça da Sé, 385.',
     bairro: 'Centro',
@@ -87,8 +100,8 @@ const locais = [
     evento: 'ADV: Kallebe Max Almeida'
   },
   {
-    cidade:'Rio de Janeiro',
-    nome: 'Tribunal de Justiça do Rio de Janeiro',
+    cidade:'Rio de Janeiro - RJ',
+    nome: 'Tribunal de Justiça do RJ',
     coords: [-22.906847, -43.172896],
     endereco: 'Av. Erasmo Braga, 115.',
     bairro: 'Centro',
@@ -96,17 +109,17 @@ const locais = [
     evento: 'ADV: Kallebe Max Almeida'
   },
   {
-    cidade:'Minas Gerais',
-    nome: 'Universidade Federal de Minas Gerais (UFMG)',
-    coords: [-19.870682, -43.966003],
-    endereco: 'Av. Antônio Carlos, 6627.',
-    bairro: 'Pampulha',
-    cep: 'CEP: 31270-901',
+    cidade:'Belo Horizonte - MG',
+    nome: 'Fórum Lafayette (BH)',
+    coords: [-19.923056, -43.938889],
+    endereco: 'Av. Augusto de Lima, 1549',
+    bairro: 'Barro Preto',
+    cep: 'CEP: 30190-001',
     evento: 'ADV: Kallebe Max Almeida'
   },
   {
-    cidade:'Rio de Janeiro',
-    nome: 'Praça dos Girassóis',
+    cidade:'Palmas - TO',
+    nome: 'Praça dos Girassóis (TO)',
     coords: [-10.249091, -48.324285],
     endereco: 'Av. Teotônio Segurado.',
     bairro: 'Centro',
@@ -114,8 +127,8 @@ const locais = [
     evento: 'ADV: Kallebe Max Almeida'
   },
   {
-    cidade:'Porto Alegre',
-    nome: 'Palácio da Justiça de Porto Alegre',
+    cidade:'Porto Alegre - RS',
+    nome: 'Palácio da Justiça de POA',
     coords: [-30.027704, -51.228734],
     endereco: 'Av. Borges de Medeiros, 1565.',
     bairro: 'Praia de Belas',
@@ -124,266 +137,314 @@ const locais = [
   }
 ];
 
-
 const localSelecionado = ref(locais[0])
 let map, marker
 
+// ===================================
+// 🔗 LINK DO GOOGLE MAPS
+// ===================================
+const googleMapsLink = computed(() => {
+  if (!localSelecionado.value || !localSelecionado.value.coords) return '#'
+  const [lat, lng] = localSelecionado.value.coords
+  // Cria o link para rota no Google Maps
+  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`
+})
+
+// ===================================
+// 🗺️ FUNÇÕES DO MAPA LEAFLET
+// ===================================
+
 onMounted(() => {
+  // Inicializa o mapa Leaflet
   map = L.map('map', {
     zoomControl: true,
     scrollWheelZoom: false
-  }).setView(localSelecionado.value.coords, 18)
+  }).setView(localSelecionado.value.coords, 16) 
 
+  // Adiciona a camada de mapa OpenStreetMap
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 22,
-    attribution: '&copy; KallDev'
+    maxZoom: 19,
+    attribution: '&copy; Leaflet | KallDev'
   }).addTo(map)
 
-  const customIcon = L.icon({
-    iconUrl: '/IMG/iconMap.svg',
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
-  })
+  // Cria um ícone personalizado com a cor primária (Vermelho)
+  const customIcon = L.divIcon({
+      className: 'custom-map-marker',
+      // Usamos um ícone Font Awesome (Pin de localização)
+      html: '<i class="fa-solid fa-location-pin" style="font-size: 38px; color: var(--primary-color);"></i>',
+      iconSize: [38, 38],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -38]
+  });
 
+  // Adiciona o marcador inicial
   marker = L.marker(localSelecionado.value.coords, { icon: customIcon })
     .addTo(map)
-    .bindPopup(localSelecionado.value.endereco)
+    .bindPopup(`<b>${localSelecionado.value.nome}</b><br>${localSelecionado.value.endereco}`)
     .openPopup()
 })
 
+// Observa mudanças na seleção do local e atualiza o mapa
 watch(localSelecionado, (novo) => {
-  map.setView(novo.coords, 18)
-  marker.setLatLng(novo.coords)
-  marker.setPopupContent(novo.endereco)
+  if (map && marker) {
+    map.setView(novo.coords, 16)
+    marker.setLatLng(novo.coords)
+    marker.setPopupContent(`<b>${novo.nome}</b><br>${novo.endereco}`)
+    marker.openPopup()
+  }
 })
 </script>
 
+<style scoped>
+/* =========================================
+   🎨 VARIÁVEIS LOCAIS E IMPORTS
+   ========================================= */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
-  
-  <style scoped>
-  .container {
+.locais-section {
+  --primary-color: #e4002b; /* Vermelho - Ação Principal */
+  --secondary-color: #002b45; /* Azul Escuro - Fundo/Informação */
+  --bg-color: #f9f9f9; 
+  padding: 4rem 1.5rem;
+  background-color: var(--bg-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   📝 CABEÇALHO DIDÁTICO
+   ========================================= */
+.header-didatico {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 1rem;
+}
+
+.titulo-principal {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.sub-titulo {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #666;
+}
+
+.passo-titulo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
-  background-color: #f4f4f4;
+    gap: 10px;
+}
 
-  }
-  
+.passo-titulo .numero {
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+
+/* =========================================
+   ✅ PASSO 1: SELEÇÃO COM BOTÕES DE RÁDIO
+   ========================================= */
+.passo-selecao {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 3rem;
+}
+
 .radio-inputs {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   border-radius: 0.5rem;
   background-color: #EEE;
-  box-sizing: border-box;
-  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-  padding: 0.25rem;
-  width: 300px;
-  font-size: 14px;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .radio-inputs .radio {
-  flex: 1 1 auto;
+  flex: 1 1 180px; /* Permite quebrar linha em telas menores */
   text-align: center;
 }
 
 .radio-inputs .radio input {
   display: none;
 }
+
 .radio-inputs .radio .name {
   display: flex;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  border: none;
-  padding: .5rem 0;
-  color: rgba(51, 65, 85, 1);
-  transition: all .15s ease-in-out;
+  padding: .7rem 0.5rem;
+  color: var(--secondary-color);
+  transition: all .2s ease-in-out;
+  white-space: nowrap;
+  font-weight: 500;
+  border: 1px solid transparent;
 }
+
 .radio-inputs .radio input:checked + .name {
-  background-color: #fff;
-  font-weight: 600;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-  .containerMap {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 2rem;
-    gap: 2rem;
-    flex-wrap: wrap;
-    background: #f4f4f4;
-  } 
-  #map {
+
+/* =========================================
+   🗺️ PASSO 2 & 3: MAPA E DETALHES
+   ========================================= */
+.containerMap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+} 
+
+.map-wrapper, .card-wrapper {
     flex: 1 1 45%;
-    height: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(69, 115, 200, 0.686);
     min-width: 300px;
-  }
-
-  .card-endereco {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  max-width: 420px;
-  margin: auto;
-  font-family: 'Segoe UI', sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-endereco:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+.map-wrapper {
+    order: 1;
+}
+
+.card-wrapper {
+    order: 2;
+}
+
+/* Mapa */
+#map {
+  width: 100%;
+  height: 450px;
+  border-radius: 12px;
+  /* Borda colorida para destaque didático */
+  border: 4px solid var(--secondary-color); 
+  box-shadow: 0 10px 30px rgba(0, 43, 69, 0.1);
+  transition: border-color 0.3s;
+}
+
+/* Card de Endereço */
+.card-endereco {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: fit-content;
+  border-top: 5px solid var(--primary-color);
 }
 
 .titulo-cidade {
   font-size: 1.4rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
+  padding-bottom: 0.5rem;
 }
 
-.card-endereco p {
-  margin: 0.5rem 0;
+.detalhes p {
+  margin: 0.9rem 0;
   font-size: 1rem;
-  color: #555;
+  color: #444;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 0.7rem;
 }
 
-.card-endereco i {
-  color: #fc1f1f;
+.detalhes i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-top: 4px;
 }
-.header-local {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: #fc1f1f;
-  color: white;
+
+.detalhes .label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    min-width: 100px;
+    display: inline-block;
+}
+
+/* Botão de Rota (Ação Principal) */
+.btn-map {
+  text-decoration: none;
+  display: block;
+  margin-top: 2rem;
+}
+
+.btn-map button {
   width: 100%;
-  padding: 20px;
-  gap: 1.5rem;
-  text-align: center;
-}
-
-.titulo-header {
-  flex: 1 1 auto;
-  font-size: 1.3rem;
-  font-weight: 600;
-  text-align: left;
+  padding: 1rem 1.75em;
+  background-color: var(--primary-color);
   color: white;
-  max-width: 300px;
-  width: 400px;
-}
-
-.radio-inputs {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 0.5rem;
-  background-color: #EEE;
-  box-sizing: border-box;
-  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-  padding: 0.25rem;
-  width: 300px;
-  font-size: 14px;
-}
-
-.radio-inputs .radio {
-  flex: 1 1 auto;
-  text-align: center;
-}
-
-.radio-inputs .radio input {
-  display: none;
-}
-
-.radio-inputs .radio .name {
-  display: flex;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 6px 15px rgba(228, 0, 43, 0.4);
+  display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
-  border: none;
-  padding: .5rem 0;
-  color: rgba(51, 65, 85, 1);
-  transition: all .15s ease-in-out;
+  gap: 10px;
 }
 
-.radio-inputs .radio input:checked + .name {
- background-color: #fc1f1f;
-  color: #EEE;
-  font-weight: 600;
+.btn-map button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 43, 69, 0.5);
 }
 
-/* Responsivo para mobile */
-@media (max-width: 768px) {
-  .header-local {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .titulo-header {
-    text-align: center;
-  }
+/* =========================================
+   📱 MEDIA QUERIES
+   ========================================= */
+@media (max-width: 900px) {
+    .map-wrapper { order: 2; }
+    .card-wrapper { order: 3; } /* Força o card a ficar por último */
+    .passo-selecao { margin-bottom: 2rem; }
+    .passo-titulo { text-align: center; justify-content: center; }
 }
 
-.btn {
- --color: rgb(41, 41, 41);
- --color2: rgb(10, 25, 30);
- padding: 0.8em 1.75em;
- background-color: transparent;
- border-radius: 6px;
- border: .3px solid var(--color);
- transition: .5s;
- position: relative;
- overflow: hidden;
- cursor: pointer;
- z-index: 1;
- font-weight: 300;
- font-size: 17px;
- font-family: 'Roboto', 'Segoe UI', sans-serif;
- text-transform: uppercase;
- color: var(--color);
-
+@media (max-width: 600px) {
+    .radio-inputs {
+        flex-direction: column;
+        padding: 0.25rem;
+    }
+    .radio-inputs .radio {
+        flex: 1 1 100%;
+    }
+    .radio-inputs .radio .name {
+        padding: 0.5rem;
+    }
 }
-.btn-map{
-   --color: #fc1f1f;
- --color2: rgb(10, 25, 30);
- text-decoration: none;
- padding: 0.8em 1.75em;
- background-color: transparent;
- border-radius: 6px;
- border: .3px solid var(--color);
- transition: .5s;
- overflow: hidden;
- cursor: pointer;
- display: flex;
- margin-top:20px ;
- z-index: 1;
- font-weight: 500;
- font-size: 17px;
- font-family: 'Roboto', 'Segoe UI', sans-serif;
- text-transform: uppercase;
- color: var(--color);
-}
-.btn:hover {
-color:#2734AF;
- border: 1px solid #2734AF;
-
-
-}
-  .endereco p {
-    margin: 0.3rem 0;
-    font-size: 1.3rem;
-  }
-  </style>
-  
+</style>

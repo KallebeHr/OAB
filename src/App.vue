@@ -1,5 +1,7 @@
 <template>
   <v-app>
+  <NavHeader/>
+
   <VLibras position="right" />
 
     <router-view />

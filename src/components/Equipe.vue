@@ -1,6 +1,25 @@
 <template>
-  <section class="equipe-section">
+  <section class="equipe-section" id="equipe">
     <div class="container">
+      
+      <!-- Cabeçalho da Seção (Inclusão para consistência visual) -->
+      <div class="header-content">
+        <div class="line-container">
+          <div class="line blue"></div>
+          <div class="line red"></div>
+        </div>
+        <h2 class="titulo">Nossa Equipe</h2>
+        <div class="line-container">
+          <div class="line red"></div>
+          <div class="line blue"></div>
+        </div>
+      </div>
+      
+      <p class="intro">
+        Conheça os profissionais especializados que estão à frente dos seus casos e projetos.
+      </p>
+      
+      <!-- Swiper Carousel -->
       <Swiper
         :modules="[Pagination]"
         :slides-per-view="'auto'"
@@ -19,7 +38,7 @@
         >
           <div class="card">
             <div class="image">
-              <img :src="adv.foto" :alt="adv.nome" />
+              <img :src="adv.foto" :alt="adv.nome" loading="lazy" />
             </div>
             <div class="info">
               <h3 class="nome">{{ adv.nome }}</h3>
@@ -27,55 +46,62 @@
               <p class="descricao">{{ adv.descricao }}</p>
               <button class="btn-cta">Conversar</button>
               <div class="redes">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-square-x-twitter"></i>
                 <i class="fa-brands fa-instagram"></i>
               </div>
             </div>
           </div>
         </SwiperSlide>
       </Swiper>
+      
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+// Importação do Swiper (Assumindo que as bibliotecas estão disponíveis no ambiente Vue)
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
+const EQUIPE_FOTOS = {
+  azul: 'https://placehold.co/400x400/002b45/ffffff?text=ADVOGADO',
+  vermelho: 'https://placehold.co/400x400/e4002b/ffffff?text=ADVOGADA'
+};
+
 const equipe = [
   {
-    nome: 'JEFFREY BROWN',
-    cargo: 'Líder criativo',
-    descricao: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    foto: '/IMGADV/1.jpg'
+    nome: 'Dr. Jeffrey Brown',
+    cargo: 'Advogado Sênior | Cível',
+    descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
+    foto: './IMGADV/1.jpg'
   },
   {
-    nome: 'ALEX GREENFIELD',
-    cargo: 'Guru da programação',
-    descricao: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    foto: '/IMGADV/4.jpg'
+    nome: 'Dra. Alex Greenfield',
+    cargo: 'Sócia | Trabalhista',
+    descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
+    foto: './IMGADV/2.jpg'
   },
   {
-    nome: 'LINDA LARSON',
-    cargo: 'Gerente',
-    descricao: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    foto: '/IMGADV/1.jpg'
+    nome: 'Dr. Linda Larson',
+    cargo: 'Advogado Pleno | Família',
+    descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
+    foto: './IMGADV/3.jpg'
   },
   {
-    nome: 'ANN RICHMOND',
-    cargo: 'Gerente de vendas',
-    descricao: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    foto: '/IMGADV/4.jpg'
+    nome: 'Dr. Ann Richmond',
+    cargo: 'Advogado | Consultivo',
+    descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
+    foto: './IMGADV/4.jpg'
   },
   {
-    nome: 'MARIA SILVA',
-    cargo: 'Advogada especialista',
-    descricao: 'Adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-    foto: '/IMGADV/1.jpg'
+    nome: 'Dr. Max',
+    cargo: 'Advogado especialista',
+    descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
+    foto: './IMGADV/1.jpg'
   }
 ];
 
@@ -93,14 +119,20 @@ function onSlideChange(swiper) {
 </script>
 
 <style scoped>
+/* =========================================
+   🎨 VARIÁVEIS LOCAIS E IMPORTS
+   ========================================= */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .equipe-section {
-  background-color: #f4f4f4;
-  padding: 4rem 1rem;
-  color: white;
-  overflow: hidden;
-
+  --primary-color: #e4002b;
+  --secondary-color: #002b45;
+  --bg-color: #f9f9f9; /* Mantendo o fundo claro */
+  
+  background-color: var(--bg-color);
+  padding: 5rem 1.5rem;
+  color: #333;
+  overflow: hidden; /* Importante para o Swiper */
 }
 
 .container {
@@ -108,15 +140,59 @@ function onSlideChange(swiper) {
   margin: 0 auto;
 }
 
-.titulo {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #fff;
+/* =========================================
+   📝 CABEÇALHO E INTRO (Reintroduzido)
+   ========================================= */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 1.5rem;
 }
 
+.line-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.line {
+  min-width: 80px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.blue { background-color: var(--secondary-color); }
+.red { background-color: var(--primary-color); }
+
+.titulo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.intro {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  max-width: 750px;
+  margin: 0 auto 4rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+}
+
+/* =========================================
+   ➡️ SWIPER / CAROUSEL
+   ========================================= */
+
 .swiper-custom {
-  padding-bottom: 3rem;
+  padding-bottom: 4rem; /* Espaço para a paginação */
+  padding-top: 1rem;
 }
 
 .slide-card {
@@ -125,31 +201,41 @@ function onSlideChange(swiper) {
   justify-content: center;
   transition: all 0.5s ease;
   opacity: 0.4;
-  transform: scale(0.9);
-  filter: blur(1px);
+  transform: scale(0.95);
+  filter: grayscale(80%) blur(1px); /* Adiciona um toque dramático */
 }
 
 .slide-card.ativo {
   opacity: 1;
-  transform: scale(1.05);
+  transform: scale(1); /* Posição central é 1.0 */
   filter: none;
   transition: all 0.5s ease;
   z-index: 10;
 }
 
+/* =========================================
+   🃏 CARD INTERNO
+   ========================================= */
+
 .card {
   position: relative;
-  width: 320px;
+  width: 350px; /* Largura um pouco maior para o card */
   background-color: transparent;
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .image {
   width: 100%;
-  height: 400px;
+  height: 450px; /* Altura maior para a foto */
   overflow: hidden;
-  border-radius: 8px;
-  transition: transform 0.5s ease;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 5px solid var(--secondary-color);
+  transition: all 0.5s ease;
+}
+
+.slide-card.ativo .image {
+  border-color: var(--primary-color);
 }
 
 .image img {
@@ -159,28 +245,30 @@ function onSlideChange(swiper) {
   transition: transform 0.6s ease;
 }
 
+/* INFO BOX - CAIXA DE TEXTO */
 .info {
   position: absolute;
   bottom: -35px;
   left: -35px;
-  background-color: #f3f3f3;
+  background-color: var(--bg-color); /* Fundo claro para o texto */
   color: #222;
   border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  width: 220px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  width: 240px;
   text-align: center;
   z-index: 2;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease;
+  border-left: 5px solid var(--primary-color);
 }
 
 
 .slide-card.ativo .info {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.1s;
+  transition-delay: 0.2s;
 }
 
 .slide-card.ativo .image img {
@@ -188,30 +276,17 @@ function onSlideChange(swiper) {
 }
 
 .nome {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--secondary-color);
   margin-bottom: 0.3rem;
 }
 
-.btn-cta {
-  background-color: #fc1f1f;
-  font-weight: bold;
-  padding: 0.4rem 3rem;
-  margin: 5px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-}
-.btn-cta:hover {
-  transform: scale(1.05);
-}
 .cargo {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #8e1c1c;
+  color: var(--primary-color); /* Usando primary color */
   margin-bottom: 0.6rem;
 }
 
@@ -221,21 +296,81 @@ function onSlideChange(swiper) {
   color: #444;
 }
 
+.btn-cta {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem 2.5rem;
+  margin: 10px 0 5px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s;
+}
+.btn-cta:hover {
+  transform: scale(1.03);
+  background-color: var(--secondary-color);
+}
+
 .redes {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 0.8rem;
-  color: #555;
-  font-size: 1rem;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+}
+.redes i {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.redes i:hover {
+    color: var(--primary-color);
 }
 
+
+/* =========================================
+   📱 MEDIA QUERIES
+   ========================================= */
 @media (max-width: 600px) {
   .info {
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 85%;
+    width: 90%;
+    padding: 1rem;
+    bottom: -50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   }
+  .card {
+    width: 280px;
+  }
+}
+
+/* Estilo da Paginação do Swiper */
+/* Usando o seletor global do Swiper para personalizar as bolinhas */
+.swiper-custom:deep(.swiper-pagination-bullet) {
+  background: var(--secondary-color);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.swiper-custom:deep(.swiper-pagination-bullet-active) {
+  background: var(--primary-color);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .line-container {
+        min-width: 50px;
+        display: none; 
+    }
 }
 </style>
