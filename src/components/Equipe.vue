@@ -21,10 +21,12 @@
       
       <!-- Swiper Carousel -->
       <Swiper
-        :modules="[Pagination]"
+        :modules="[Pagination, EffectCoverflow]"
+        effect="coverflow"
+        :coverflowEffect="coverflowConfig"
         :slides-per-view="'auto'"
         :centered-slides="true"
-        :space-between="80"
+        :breakpoints="swiperBreakpoints"
         :pagination="{ clickable: true }"
         class="swiper-custom"
         @slideChange="onSlideChange"
@@ -60,12 +62,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 // Importação do Swiper (Assumindo que as bibliotecas estão disponíveis no ambiente Vue)
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import 'swiper/css/effect-coverflow'; // Novo CSS para o efeito Coverflow
+import { Pagination, EffectCoverflow } from 'swiper/modules'; // Novo módulo EffectCoverflow
 
 const EQUIPE_FOTOS = {
   azul: 'https://placehold.co/400x400/002b45/ffffff?text=ADVOGADO',
@@ -107,6 +110,42 @@ const equipe = [
 
 const swiperInstance = ref(null);
 const activeIndex = ref(0);
+const isMobile = ref(window.innerWidth <= 600);
+
+// Configuração de breakpoints para o Swiper
+const swiperBreakpoints = {
+    // Mobile (0px e acima)
+    0: {
+        spaceBetween: 20,
+    },
+    // Desktop (601px e acima)
+    601: {
+        spaceBetween: 80,
+    }
+};
+
+// Configuração dinâmica do efeito Coverflow baseada no tamanho da tela
+const coverflowConfig = {
+  rotate: isMobile.value ? 20 : 50, // Menos rotação no mobile
+  stretch: 0,
+  depth: isMobile.value ? 50 : 100, // Menos profundidade no mobile
+  modifier: 1,
+  slideShadows: true,
+};
+
+function handleResize() {
+  isMobile.value = window.innerWidth <= 600;
+  // O Swiper deve recalcular a configuração do Coverflow automaticamente com a alteração do estado.
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
 
 function onSwiperInit(swiper) {
   swiperInstance.value = swiper;
@@ -120,8 +159,8 @@ function onSlideChange(swiper) {
 
 <style scoped>
 /* =========================================
-   🎨 VARIÁVEIS LOCAIS E IMPORTS
-   ========================================= */
+    🎨 VARIÁVEIS LOCAIS E IMPORTS
+    ========================================= */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .equipe-section {
@@ -141,8 +180,8 @@ function onSlideChange(swiper) {
 }
 
 /* =========================================
-   📝 CABEÇALHO E INTRO (Reintroduzido)
-   ========================================= */
+    📝 CABEÇALHO E INTRO (Reintroduzido)
+    ========================================= */
 .header-content {
   display: flex;
   align-items: center;
@@ -187,8 +226,8 @@ function onSlideChange(swiper) {
 }
 
 /* =========================================
-   ➡️ SWIPER / CAROUSEL
-   ========================================= */
+    ➡️ SWIPER / CAROUSEL
+    ========================================= */
 
 .swiper-custom {
   padding-bottom: 4rem; /* Espaço para a paginação */
@@ -202,20 +241,18 @@ function onSlideChange(swiper) {
   transition: all 0.5s ease;
   opacity: 0.4;
   transform: scale(0.95);
-  filter: grayscale(80%) blur(1px); /* Adiciona um toque dramático */
 }
 
 .slide-card.ativo {
   opacity: 1;
   transform: scale(1); /* Posição central é 1.0 */
-  filter: none;
   transition: all 0.5s ease;
   z-index: 10;
 }
 
 /* =========================================
-   🃏 CARD INTERNO
-   ========================================= */
+    🃏 CARD INTERNO
+    ========================================= */
 
 .card {
   position: relative;
@@ -332,9 +369,32 @@ function onSlideChange(swiper) {
 
 
 /* =========================================
-   📱 MEDIA QUERIES
-   ========================================= */
+    📱 MEDIA QUERIES
+    ========================================= */
 @media (max-width: 600px) {
+  /* CORREÇÃO CRÍTICA 1: Remover o padding horizontal da seção principal, deixando o Swiper gerir o espaço. */
+  .equipe-section {
+    padding: 5rem 0; /* Removido o padding horizontal */
+  }
+
+  /* CORREÇÃO CRÍTICA 2: Adicionar o padding horizontal diretamente ao contentor do Swiper. */
+  .swiper-custom {
+    /* Top, Right, Bottom, Left */
+    padding: 1rem 1.5rem 4rem 1.5rem; /* Adicionado 1.5rem de padding horizontal ao Swiper */
+  }
+
+  /* CORREÇÃO CRÍTICA 3: Forçar largura menor do slide no mobile para auxiliar na centralização. */
+  .slide-card {
+    width: 75% !important; /* Usar apenas 75% da largura disponível */
+  }
+
+  /* Ajuste Fino do Card */
+  .card {
+    width: 100%; /* Ocupa toda a largura do slide-card (75%) */
+    max-width: 300px;
+  }
+  
+  /* Garantindo que o 'info' box se centralize abaixo do card no mobile */
   .info {
     left: 0;
     right: 0;
@@ -344,8 +404,15 @@ function onSlideChange(swiper) {
     bottom: -50px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   }
-  .card {
-    width: 280px;
+  
+  /* Ajustes do cabeçalho no mobile */
+  .header-content {
+      flex-direction: column;
+      gap: 10px;
+  }
+  .line-container {
+      min-width: 50px;
+      display: none; 
   }
 }
 
@@ -361,16 +428,5 @@ function onSlideChange(swiper) {
   background: var(--primary-color);
   opacity: 1;
   transform: scale(1.2);
-}
-
-@media (max-width: 600px) {
-    .header-content {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .line-container {
-        min-width: 50px;
-        display: none; 
-    }
 }
 </style>

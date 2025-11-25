@@ -138,9 +138,9 @@
             <!-- REDES SOCIAIS (Só Desktop) -->
             <v-col cols="12" md="3">
               <div class="d-flex justify-end gap-2">
-                <v-btn icon="mdi-instagram" variant="text" density="compact" color="white"></v-btn>
-                <v-btn icon="mdi-facebook" variant="text" density="compact" color="white"></v-btn>
-                <v-btn icon="mdi-whatsapp" variant="text" density="compact" color="white"></v-btn>
+                <v-btn icon="mdi-instagram" variant="text" density="compact"  class="icon"></v-btn>
+                <v-btn icon="mdi-facebook" variant="text" density="compact"  class="icon"></v-btn>
+                <v-btn icon="mdi-whatsapp" variant="text" density="compact"  class="icon"></v-btn>
               </div>
             </v-col>
 
@@ -277,7 +277,10 @@ onUnmounted(() => {
   /* Transição rápida e linear para acompanhar o scroll de perto. */
   transition: width 0.1s linear; 
 }
-
+.icon:hover{
+color: #ffcc00;
+transition: 0.1s;
+}
 /* Sombras e Bordas */
 .custom-header-shadow {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);

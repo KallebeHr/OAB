@@ -23,6 +23,7 @@ declare module 'vue' {
     LineEquipe: typeof import('./src/components/LineEquipe.vue')['default']
     Local: typeof import('./src/components/local.vue')['default']
     NavHeader: typeof import('./src/components/NavHeader.vue')['default']
+    PreLoader: typeof import('./src/components/PreLoader.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sobre: typeof import('./src/components/Sobre.vue')['default']
