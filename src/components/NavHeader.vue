@@ -271,7 +271,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   height: 5px; /* Altura fina */
-  background-color: black; /* Cor de destaque (accent) */
+  background-color: rgb(48, 48, 255); /* Cor de destaque (accent) */
   z-index: 2000; /* Z-index alto para garantir que fique acima de TUDO (incluindo o header fixo) */
   width: 100%; /* Garante que o container da barra cubra toda a largura */
   /* Transição rápida e linear para acompanhar o scroll de perto. */
