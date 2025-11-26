@@ -4,7 +4,7 @@
       
       <!-- Cabeçalho Didático -->
       <div class="header-didatico">
-        <h1 class="titulo-principal">Localize e Planeie a Sua Visita em 3 Passos Simples</h1>
+        <h1 class="titulo-principal">Localize e Planeje a Sua Visita em 3 Passos Simples</h1>
         <p class="sub-titulo">Selecione o local desejado, visualize-o no mapa e obtenha a rota mais rápida.</p>
       </div>
 

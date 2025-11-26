@@ -80,7 +80,7 @@
           </div>
           
           <!-- NAVEGAÇÃO DESKTOP (Visível APENAS Desktop: d-none d-md-flex) -->
-          <nav class="d-none d-md-flex mx-auto align-center h-100">
+          <nav class="d-none d-md-flex mx-auto align-center h-100 desktop">
             <v-btn
               v-for="(item, index) in menuItems"
               :key="index"

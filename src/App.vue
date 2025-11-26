@@ -5,9 +5,9 @@
     </div>
     <div v-else>
       <NavHeader/>
-      <VLibras position="right" />
       <router-view />
     </div>
+    <VLibras position="right" />
   </v-app>
 </template>
 
