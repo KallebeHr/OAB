@@ -80,31 +80,31 @@ const equipe = [
     nome: 'Dr. Jeffrey Brown',
     cargo: 'Advogado Sênior | Cível',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
-    foto: './IMGADV/1.jpg'
+    foto: './IMGADV/a1.png'
   },
   {
     nome: 'Dra. Alex Greenfield',
     cargo: 'Sócia | Trabalhista',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
-    foto: './IMGADV/2.jpg'
+    foto: './IMGADV/a2.png'
   },
   {
     nome: 'Dr. Linda Larson',
     cargo: 'Advogado Pleno | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
-    foto: './IMGADV/3.jpg'
+    foto: './IMGADV/a3.png'
   },
   {
     nome: 'Dr. Ann Richmond',
     cargo: 'Advogado | Consultivo',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-    foto: './IMGADV/4.jpg'
+    foto: './IMGADV/a4.png'
   },
   {
     nome: 'Dr. Max',
     cargo: 'Advogado especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
-    foto: './IMGADV/1.jpg'
+    foto: './IMGADV/a2.png'
   }
 ];
 
