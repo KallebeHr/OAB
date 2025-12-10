@@ -32,8 +32,6 @@
           Compromisso com seus direitos e resultados reais.
         </p>
       </div>
-
-      <!-- Ícones com efeito Glassmorphism -->
       <div class="destaques anim-item delay-4">
         <div class="card-glass">
           <i class="fa-solid fa-scale-balanced icon-red"></i> 
@@ -48,16 +46,12 @@
           <span>Defesa Ágil</span>
         </div>
       </div>
-
-      <!-- Botão CTA com efeito Pulse -->
       <div class="cta-wrapper anim-item delay-5">
         <button class="btn-cta">
-          Fale com Dr. Rômulo Santos
+          Fale com Dra. Carolaine Alves.
           <i class="fa-brands fa-whatsapp ml-2"></i>
         </button>
       </div>
-
-      <!-- Scroll Indicator Interativo (Agora no fluxo normal, sem sobreposição) -->
       <a href="#proxima-secao" class="scroll-down anim-item delay-6">
         <span class="scroll-text">Deslize</span>
         <i class="fa-solid fa-chevron-down bounce-icon"></i>

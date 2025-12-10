@@ -77,32 +77,32 @@ const EQUIPE_FOTOS = {
 
 const equipe = [
   {
-    nome: 'Dr. Jeffrey Brown',
-    cargo: 'Advogado Sênior | Cível',
+    nome: 'Dra. Carolaine Alves',
+    cargo: 'Advogada Sênior | Cível',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
     foto: './IMGADV/a1.png'
   },
   {
-    nome: 'Dra. Alex Greenfield',
+    nome: 'Dra. Carolaine Alves',
     cargo: 'Sócia | Trabalhista',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
     foto: './IMGADV/a2.png'
   },
   {
-    nome: 'Dr. Linda Larson',
-    cargo: 'Advogado Pleno | Família',
+    nome: 'Dra. Carolaine Alves',
+    cargo: 'Advogada Pleno | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
     foto: './IMGADV/a3.png'
   },
   {
-    nome: 'Dr. Ann Richmond',
-    cargo: 'Advogado | Consultivo',
+    nome: 'Dra. Carolaine Alves',
+    cargo: 'Advogada | Consultivo',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
     foto: './IMGADV/a4.png'
   },
   {
-    nome: 'Dr. Max',
-    cargo: 'Advogado especialista',
+    nome: 'Dra. Carolaine Alves',
+    cargo: 'Advogada especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
     foto: './IMGADV/a2.png'
   }
