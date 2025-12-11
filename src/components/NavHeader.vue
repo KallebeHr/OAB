@@ -69,7 +69,7 @@
           <v-app-bar-nav-icon 
             variant="text" 
             size="large"
-            class="d-md-none text-secondary-custom"
+            class="d-md-none text-secondary-custom-menu"
             @click.stop="drawer = !drawer"
           ></v-app-bar-nav-icon>
 
@@ -230,6 +230,7 @@ onUnmounted(() => {
 /* CORES */
 .bg-primary-custom { background-color: #0B0C38 !important; }
 .text-secondary-custom { color: #002b45 !important; }
+.text-secondary-custom-menu { color: #ffffff !important; }
 .text-accent-custom { color: #ffcc00 !important; }
 
 /* FIXAR O CABEÇALHO NO TOPO (FIXED) */
