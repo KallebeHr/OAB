@@ -24,7 +24,7 @@
     >
       <!-- Cabeçalho do Menu Mobile -->
       <div class="drawer-header pa-4 d-flex align-center justify-space-between bg-primary-custom">
-        <h2 class="text-white font-weight-bold m-0 text-h6">Dra. Cíntia Lima</h2>
+        <h2 class="text-white font-weight-bold m-0 text-h6">MaxSistemas</h2>
         <!-- Botão para fechar o menu -->
         <v-btn icon="mdi-close" variant="text" color="white" @click="drawer = false"></v-btn>
       </div>
@@ -61,15 +61,14 @@
     >
       
       <!-- 1. BARRA DE NAVEGAÇÃO (BRANCA) -->
-
-      <div class="nav-bar" style="background-color: #0B0C38;">
+      <div class="nav-bar bg-white">
         <v-container class="py-0 d-flex align-center justify-space-between fill-height" style="min-height: 60px;">
           
           <!-- BOTÃO HAMBÚRGUER (Visível APENAS no Mobile: d-md-none) -->
           <v-app-bar-nav-icon 
             variant="text" 
             size="large"
-            class="d-md-none text-secondary-custom-menu"
+            class="d-md-none text-secondary-custom"
             @click.stop="drawer = !drawer"
           ></v-app-bar-nav-icon>
 
@@ -228,9 +227,9 @@ onUnmounted(() => {
 
 <style scoped>
 /* CORES */
+.bg-primary-custom-bg-mobile { background-color: #0B0C38 !important; }
 .bg-primary-custom { background-color: #0B0C38 !important; }
 .text-secondary-custom { color: #002b45 !important; }
-.text-secondary-custom-menu { color: #ffffff !important; }
 .text-accent-custom { color: #ffcc00 !important; }
 
 /* FIXAR O CABEÇALHO NO TOPO (FIXED) */
@@ -259,14 +258,13 @@ onUnmounted(() => {
   width: 100%;
   /* Adiciona transição suave para a animação de deslize */
   transition: transform 0.3s ease-out; 
-
+  
 }
 
 /* Classe aplicada quando o cabeçalho deve estar escondido */
 .header-hidden {
   /* Move o cabeçalho para cima (fora da tela). O valor de -150px garante que ele suma completamente. */
   transform: translateY(-150px); 
-
 }
 
 /* BARRA DE PROGRESSO DE LEITURA (Progress Bar) */
