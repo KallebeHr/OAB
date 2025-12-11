@@ -77,34 +77,34 @@ const EQUIPE_FOTOS = {
 
 const equipe = [
   {
-    nome: 'Dra. Carolaine Alves',
-    cargo: 'Advogada Sênior | Cível',
+    nome: 'Dra. Cíntia Lima Almeida',
+    cargo: 'Advogada  | Previdenciário',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
     foto: './IMGADV/a1.png'
   },
   {
-    nome: 'Dra. Carolaine Alves',
-    cargo: 'Sócia | Trabalhista',
+    nome: 'Dra. Cíntia Lima Almeida',
+    cargo: 'Advogada | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
     foto: './IMGADV/a2.png'
   },
   {
-    nome: 'Dra. Carolaine Alves',
-    cargo: 'Advogada Pleno | Família',
+    nome: 'Dra. Cíntia Lima Almeida',
+    cargo: 'Advogada | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
     foto: './IMGADV/a3.png'
   },
   {
-    nome: 'Dra. Carolaine Alves',
-    cargo: 'Advogada | Consultivo',
+    nome: 'Dra. Cíntia Lima Almeida',
+    cargo: 'Advogada | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
     foto: './IMGADV/a4.png'
   },
   {
-    nome: 'Dra. Carolaine Alves',
+    nome: 'Dra. Cíntia Lima Almeida',
     cargo: 'Advogada especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
-    foto: './IMGADV/a2.png'
+    foto: './IMGADV/a5.png'
   }
 ];
 

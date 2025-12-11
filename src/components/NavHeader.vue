@@ -24,7 +24,7 @@
     >
       <!-- Cabeçalho do Menu Mobile -->
       <div class="drawer-header pa-4 d-flex align-center justify-space-between bg-primary-custom">
-        <h2 class="text-white font-weight-bold m-0 text-h6">MaxSistemas</h2>
+        <h2 class="text-white font-weight-bold m-0 text-h6">Dra. Cíntia Lima</h2>
         <!-- Botão para fechar o menu -->
         <v-btn icon="mdi-close" variant="text" color="white" @click="drawer = false"></v-btn>
       </div>
@@ -61,7 +61,8 @@
     >
       
       <!-- 1. BARRA DE NAVEGAÇÃO (BRANCA) -->
-      <div class="nav-bar bg-white">
+
+      <div class="nav-bar" style="background-color: #0B0C38;">
         <v-container class="py-0 d-flex align-center justify-space-between fill-height" style="min-height: 60px;">
           
           <!-- BOTÃO HAMBÚRGUER (Visível APENAS no Mobile: d-md-none) -->
@@ -76,7 +77,7 @@
             LOGO MOBILE (Movida para a esquerda) 
           -->
           <div class="d-flex d-md-none align-center">
-            <img src="/LogoPNG.png" alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
+            <img src="/IMGADV/LogoNametest.png" alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
           </div>
           
           <!-- NAVEGAÇÃO DESKTOP (Visível APENAS Desktop: d-none d-md-flex) -->
@@ -108,7 +109,7 @@
             <!-- LOGO (Só Desktop) -->
             <v-col cols="12" md="3" class="text-left d-flex align-center">
               <img 
-                src="/LogoPNG.png" 
+                src="/IMGADV/LogoNametest.png" 
                 alt="Logo MaxSistemas" 
                 class="logo-desktop"
               >
@@ -227,7 +228,7 @@ onUnmounted(() => {
 
 <style scoped>
 /* CORES */
-.bg-primary-custom { background-color: #e4002b !important; }
+.bg-primary-custom { background-color: #0B0C38 !important; }
 .text-secondary-custom { color: #002b45 !important; }
 .text-accent-custom { color: #ffcc00 !important; }
 
@@ -246,6 +247,7 @@ onUnmounted(() => {
 .logo-mobile {
   width: auto;
   height: 35px; /* Um pouco menor para mobile */
+  
 }
 
 .sticky-header {
@@ -256,12 +258,14 @@ onUnmounted(() => {
   width: 100%;
   /* Adiciona transição suave para a animação de deslize */
   transition: transform 0.3s ease-out; 
+
 }
 
 /* Classe aplicada quando o cabeçalho deve estar escondido */
 .header-hidden {
   /* Move o cabeçalho para cima (fora da tela). O valor de -150px garante que ele suma completamente. */
   transform: translateY(-150px); 
+
 }
 
 /* BARRA DE PROGRESSO DE LEITURA (Progress Bar) */
