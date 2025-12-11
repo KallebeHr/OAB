@@ -76,7 +76,7 @@
             LOGO MOBILE (Movida para a esquerda) 
           -->
           <div class="d-flex d-md-none align-center">
-            <img src="/IMGADV/LogoNametest.png" alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
+            <img src="/LogoPNG.png" alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
           </div>
           
           <!-- NAVEGAÇÃO DESKTOP (Visível APENAS Desktop: d-none d-md-flex) -->
