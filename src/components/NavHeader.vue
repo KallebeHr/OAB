@@ -76,7 +76,8 @@
             LOGO MOBILE (Movida para a esquerda) 
           -->
           <div class="d-flex d-md-none align-center">
-            <img src="/LogoPNG.png" alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
+
+            <img src="/LogoPNG.png"  alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
           </div>
           
           <!-- NAVEGAÇÃO DESKTOP (Visível APENAS Desktop: d-none d-md-flex) -->
@@ -108,7 +109,7 @@
             <!-- LOGO (Só Desktop) -->
             <v-col cols="12" md="3" class="text-left d-flex align-center">
               <img 
-                src="/IMGADV/LogoNametest.png" 
+                src="/LogoPNG.png" 
                 alt="Logo MaxSistemas" 
                 class="logo-desktop"
               >
@@ -228,7 +229,7 @@ onUnmounted(() => {
 <style scoped>
 /* CORES */
 .bg-primary-custom-bg-mobile { background-color: #0B0C38 !important; }
-.bg-primary-custom { background-color: #0B0C38 !important; }
+.bg-primary-custom { background-color: #e4002b !important; }
 .text-secondary-custom { color: #002b45 !important; }
 .text-accent-custom { color: #ffcc00 !important; }
 

@@ -77,34 +77,34 @@ const EQUIPE_FOTOS = {
 
 const equipe = [
   {
-    nome: 'Dra. Cíntia Lima Almeida',
+    nome: 'Dr. Kallebe Max',
     cargo: 'Advogada  | Previdenciário',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
-    foto: './IMGADV/a1.png'
+    foto: './IMGADV/1.jpg'
   },
   {
-    nome: 'Dra. Cíntia Lima Almeida',
+    nome: 'Dr. Kallebe Max',
     cargo: 'Advogada | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
-    foto: './IMGADV/a2.png'
+    foto: './IMGADV/2.jpg'
   },
   {
-    nome: 'Dra. Cíntia Lima Almeida',
+    nome: 'Dr. Kallebe Max',
     cargo: 'Advogada | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
-    foto: './IMGADV/a3.png'
+    foto: './IMGADV/3.jpg'
   },
   {
-    nome: 'Dra. Cíntia Lima Almeida',
+    nome: 'Dr. Kallebe Max',
     cargo: 'Advogada | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-    foto: './IMGADV/a4.png'
+    foto: './IMGADV/4.jpg'
   },
   {
-    nome: 'Dra. Cíntia Lima Almeida',
+    nome: 'Dr. Kallebe Max',
     cargo: 'Advogada especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
-    foto: './IMGADV/a5.png'
+    foto: './IMGADV/2.jpg'
   }
 ];
 

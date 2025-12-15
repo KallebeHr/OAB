@@ -161,30 +161,25 @@ onMounted(() => {
     scrollWheelZoom: false
   }).setView(localSelecionado.value.coords, 16) 
 
-  // Adiciona a camada de mapa OpenStreetMap
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; Leaflet | KallDev'
   }).addTo(map)
 
-  // Cria um ícone personalizado com a cor primária (Vermelho)
   const customIcon = L.divIcon({
       className: 'custom-map-marker',
-      // Usamos um ícone Font Awesome (Pin de localização)
       html: '<i class="fa-solid fa-location-pin" style="font-size: 38px; color: var(--primary-color);"></i>',
       iconSize: [38, 38],
       iconAnchor: [19, 38],
       popupAnchor: [0, -38]
   });
 
-  // Adiciona o marcador inicial
   marker = L.marker(localSelecionado.value.coords, { icon: customIcon })
     .addTo(map)
     .bindPopup(`<b>${localSelecionado.value.nome}</b><br>${localSelecionado.value.endereco}`)
     .openPopup()
 })
 
-// Observa mudanças na seleção do local e atualiza o mapa
 watch(localSelecionado, (novo) => {
   if (map && marker) {
     map.setView(novo.coords, 16)
@@ -196,9 +191,6 @@ watch(localSelecionado, (novo) => {
 </script>
 
 <style scoped>
-/* =========================================
-   🎨 VARIÁVEIS LOCAIS E IMPORTS
-   ========================================= */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .locais-section {
