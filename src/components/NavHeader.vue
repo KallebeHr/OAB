@@ -69,7 +69,7 @@
             variant="text" 
             size="large"
             class="d-md-none text-secondary-custom"
-            @click.stop="drawer = !drawer"
+            @click.stop="drawer = !drawer" 
           ></v-app-bar-nav-icon>
 
           <!-- 
@@ -77,7 +77,7 @@
           -->
           <div class="d-flex d-md-none align-center">
 
-            <img  src="/IMGADV/LogoPNG.png"   alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
+            <img  src="/IMGADV/LogoPNG2.png"   alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
           </div>
           
           <!-- NAVEGAÇÃO DESKTOP (Visível APENAS Desktop: d-none d-md-flex) -->
@@ -109,7 +109,7 @@
             <!-- LOGO (Só Desktop) -->
             <v-col cols="12" md="3" class="text-left d-flex align-center">
               <img 
-                src="/IMGADV/LogoPNG.png" 
+                src="/IMGADV/LogoPNG2.png" 
                 alt="Logo MaxSistemas" 
                 class="logo-desktop"
               >
@@ -243,6 +243,7 @@ onUnmounted(() => {
 .logo-desktop {
   width: auto; /* Mantém a proporção */
   height: 50px; /* Altura ideal */
+  margin: 0px;
 }
 /* Estilos para a logo mobile (na barra branca) */
 .logo-mobile {
@@ -327,6 +328,7 @@ transition: 0.1s;
 @media (min-width: 960px) { /* md breakpoint do Vuetify */
     .header-spacer {
         height: 110px;
+        
     }
 }
 </style>

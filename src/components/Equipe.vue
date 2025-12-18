@@ -77,31 +77,31 @@ const EQUIPE_FOTOS = {
 
 const equipe = [
   {
-    nome: 'Dra. Nicolly Passos',
+    nome: 'Dra. Luiza Maia',
     cargo: 'Advogada  | Previdenciário',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
     foto: './IMGADV/a1.jpeg'
   },
   {
-    nome: 'Dra. Nicolly Passos',
+    nome: 'Dra. Luiza Maia',
     cargo: 'Advogada | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
     foto: './IMGADV/a2.jpeg'
   },
   {
-    nome: 'Dra. Nicolly Passos',
+    nome: 'Dra. Luiza Maia',
     cargo: 'Advogada | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
     foto: './IMGADV/a3.jpeg'
   },
   {
-    nome: 'Dra. Nicolly Passos',
+    nome: 'Dra. Luiza Maia',
     cargo: 'Advogada | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
     foto: './IMGADV/a1.jpeg'
   },
   {
-    nome: 'Dra. Nicolly Passos',
+    nome: 'Dra. Luiza Maia',
     cargo: 'Advogada especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
     foto: './IMGADV/a2.jpeg'
