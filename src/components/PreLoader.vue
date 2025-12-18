@@ -2,7 +2,7 @@
   <div class='container'>
 <!-- From Uiverse.io by Uncannypotato69 --> 
 <div class="textWrapper">
-  <p class="text">Dra. Cíntia Lima</p>
+  <p class="text">Dra. Nicolly Passos</p>
   <div class="invertbox"></div>
 </div>
 

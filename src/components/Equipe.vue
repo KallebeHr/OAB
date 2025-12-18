@@ -77,34 +77,34 @@ const EQUIPE_FOTOS = {
 
 const equipe = [
   {
-    nome: 'Dr. Kallebe Max',
+    nome: 'Dra. Nicolly Passos',
     cargo: 'Advogada  | Previdenciário',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
-    foto: './IMGADV/1.jpg'
+    foto: './IMGADV/a1.jpeg'
   },
   {
-    nome: 'Dr. Kallebe Max',
+    nome: 'Dra. Nicolly Passos',
     cargo: 'Advogada | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
-    foto: './IMGADV/2.jpg'
+    foto: './IMGADV/a2.jpeg'
   },
   {
-    nome: 'Dr. Kallebe Max',
+    nome: 'Dra. Nicolly Passos',
     cargo: 'Advogada | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
-    foto: './IMGADV/3.jpg'
+    foto: './IMGADV/a3.jpeg'
   },
   {
-    nome: 'Dr. Kallebe Max',
+    nome: 'Dra. Nicolly Passos',
     cargo: 'Advogada | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-    foto: './IMGADV/4.jpg'
+    foto: './IMGADV/a1.jpeg'
   },
   {
-    nome: 'Dr. Kallebe Max',
+    nome: 'Dra. Nicolly Passos',
     cargo: 'Advogada especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
-    foto: './IMGADV/2.jpg'
+    foto: './IMGADV/a2.jpeg'
   }
 ];
 
