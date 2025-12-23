@@ -5,7 +5,7 @@
         
         <!-- Coluna Esquerda: Logo e Redes Sociais -->
         <div class="footer-left">
-          <img  src="/IMGADV/LogoPNG2.png"  alt="" class="logo">
+          <img  src="/LogoPNG.png"  alt="" class="logo">
           <p class="description">
             Soluções jurídicas personalizadas, com compromisso, ética e excelência para alcançar o melhor resultado.
           </p>
@@ -50,8 +50,8 @@
         <div class="footer-column contact-info-quick">
           <h4>Contacto Rápido</h4>
           <ul>
-            <li><i class="fa-solid fa-phone"></i> (86) 981632626</li>
-            <li><i class="fa-solid fa-envelope"></i> Kalebealmeidap2@gmail.com</li>
+            <li><i class="fa-solid fa-phone"></i> (86) 12345-6789</li>
+            <li><i class="fa-solid fa-envelope"></i> SeuEmail@gmail.com</li>
             <li><i class="fa-solid fa-map-marker-alt"></i> Pedro II, Piaui</li>
           </ul>
         </div>
@@ -62,8 +62,8 @@
     <!-- Faixa de Direitos Autorais -->
     <div class="footer-bottom">
       <div class="container bottom-flex">
-        <p>Copyright &copy; {{ new Date().getFullYear() }}. Kall Sistemas. Todos os direitos reservados.</p>
-        <p>Desenvolvido por <span class="kallmax-credit">KallSistemas.</span></p>
+        <p>Copyright &copy; {{ new Date().getFullYear() }}. Max Sistemas. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <span class="kallmax-credit">MaxSistemas.</span></p>
       </div>
     </div>
   </footer>

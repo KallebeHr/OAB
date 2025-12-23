@@ -2,7 +2,7 @@
   <div class='container'>
 <!-- From Uiverse.io by Uncannypotato69 --> 
 <div class="textWrapper">
-  <p class="text">Dra. Luiza Maia</p>
+  <p class="text">Dr. <span class="highlight">Seu Nome</span></p>
   <div class="invertbox"></div>
 </div>
 
@@ -31,9 +31,19 @@
   letter-spacing: 0.25ch;
   position: relative;
   z-index: 0;
-  color: rgb(255, 0, 0);
+  color: white
 }
+.highlight{
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem); /* Fonte levemente reduzida */
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem; /* Margem reduzida */
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  color: rgb(255, 0, 0);
 
+}
 .invertbox {
   position: absolute;
   height: 100%;
@@ -44,8 +54,19 @@
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: invert(10%);
   animation: move 2s ease-in-out infinite;
-}
+  color:  rgb(255, 0, 0);
 
+}
+.text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem); /* Fonte levemente reduzida */
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem; /* Margem reduzida */
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  color: aliceblue;
+}
 @keyframes move {
   50% {
     left: calc(100% - 3rem);
