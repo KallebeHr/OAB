@@ -1,13 +1,11 @@
 <template>
   <div class='container'>
-<!-- From Uiverse.io by Uncannypotato69 --> 
 <div class="textWrapper">
   <p class="text">Dr. <span class="highlight">Seu Nome</span></p>
   <div class="invertbox"></div>
 </div>
-
-
-  </div>
+<img src="/LogoPNG.png" class="logoName" alt="">
+</div>
 </template>
 
 <script setup>
@@ -16,6 +14,7 @@
 <style scoped>
 .container{
     display:flex;
+    flex-direction: column;
     height: 98vh;
     justify-content: center;
     align-items: center;
@@ -32,6 +31,9 @@
   position: relative;
   z-index: 0;
   color: white
+}
+.logoName{
+  width: 10rem;
 }
 .highlight{
   font-family: 'Montserrat', sans-serif;
