@@ -1,19 +1,10 @@
 <template>
-  <!-- Envolvemos em v-layout para garantir que o drawer funcione corretamente -->
   <v-layout class="header-layout-wrapper">
-    
-    <!-- ============================================ -->
-    <!-- 🟢 BARRA DE PROGRESSO DE LEITURA (Progress Bar) -->
-    <!-- FOI MOVIDO PARA FORA DO <header> PARA NÃO SER AFETADO PELO Smart Header -->
-    <!-- ============================================ -->
     <div 
         class="reading-progress-bar" 
         :style="{ width: scrollProgress + '%' }"
     ></div>
     
-    <!-- ============================================ -->
-    <!-- 📱 MENU LATERAL (MOBILE - DRAWER) -->
-    <!-- ============================================ -->
     <v-navigation-drawer
       v-model="drawer"
       temporary
@@ -51,10 +42,6 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!-- ============================================ -->
-    <!-- 🏗️ CABEÇALHO (Fixed/Smart Header) -->
-    <!-- O transform: translateY é aplicado a este elemento. -->
-    <!-- ============================================ -->
     <header 
         class="sticky-header w-100 d-flex flex-column custom-header-shadow"
         :class="{ 'header-hidden': !showHeader }"
@@ -77,7 +64,7 @@
           -->
           <div class="d-flex d-md-none align-center">
 
-            <img  src="/LogoPNG1.png"   alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
+            <img  src="/LogoPNG.png"   alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
           </div>
           
           <!-- NAVEGAÇÃO DESKTOP (Visível APENAS Desktop: d-none d-md-flex) -->
@@ -93,11 +80,8 @@
               {{ item }}
             </v-btn>
           </nav>
-          
-          <!-- ESPAÇO EXTRA (Para centralizar os links no desktop) -->
+
           <v-spacer class="d-none d-md-block"></v-spacer>
-
-
         </v-container>
       </div>
 
@@ -109,7 +93,7 @@
             <!-- LOGO (Só Desktop) -->
             <v-col cols="12" md="3" class="text-left d-flex align-center">
               <img 
-                src="/LogoPNG1.png" 
+                src="/LogoPNG.png" 
                 alt="Logo MaxSistemas" 
                 class="logo-desktop"
               >

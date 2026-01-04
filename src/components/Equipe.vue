@@ -77,34 +77,34 @@ const EQUIPE_FOTOS = {
 
 const equipe = [
   {
-    nome: 'Dra. Sam Lira',
-    cargo: 'Advogada  | Previdenciário',
+    nome: 'Dr. Seu Nome',
+    cargo: 'Advogado  | Previdenciário',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
-    foto: './IMGADV/1a.jpg'
+    foto: './IMGADV/1.jpg'
   },
   {
-    nome: 'Dra. Sam Lira',
-    cargo: 'Advogada | Extrajudicial',
+    nome: 'Dr. Seu Nome',
+    cargo: 'Advogado | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
-    foto: './IMGADV/2a.jpg'
+    foto: './IMGADV/2.jpg'
   },
   {
-    nome: 'Dra. Sam Lira',
-    cargo: 'Advogada | Família',
+    nome: 'Dr. Seu Nome',
+    cargo: 'Advogado | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
-    foto: './IMGADV/3a.jpg'
+    foto: './IMGADV/3.jpg'
   },
   {
-    nome: 'Dra. Sam Lira',
-    cargo: 'Advogada | Previdenciário',
+    nome: 'Dr. Seu Nome',
+    cargo: 'Advogado | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-    foto: './IMGADV/4a.jpg'
+    foto: './IMGADV/4.jpg'
   },
   {
-    nome: 'Dra. Sam Lira',
-    cargo: 'Advogada | especialista',
+    nome: 'Dr. Seu Nome',
+    cargo: 'Advogado | especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
-    foto: './IMGADV/2a.jpg'
+    foto: './IMGADV/2.jpg'
   }
 ];
 
