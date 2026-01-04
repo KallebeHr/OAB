@@ -22,7 +22,6 @@
 
       <v-divider></v-divider>
 
-      <!-- Lista de Links Mobile -->
       <v-list class="py-2">
         <v-list-item
           v-for="(item, index) in menuItems"
