@@ -116,24 +116,6 @@ const locais = [
     bairro: 'Barro Preto',
     cep: 'CEP: 30190-001',
     evento: 'ADV: Kallebe Max Almeida'
-  },
-  {
-    cidade:'Palmas - TO',
-    nome: 'Praça dos Girassóis (TO)',
-    coords: [-10.249091, -48.324285],
-    endereco: 'Av. Teotônio Segurado.',
-    bairro: 'Centro',
-    cep: 'CEP: 77015-200',
-    evento: 'ADV: Kallebe Max Almeida'
-  },
-  {
-    cidade:'Porto Alegre - RS',
-    nome: 'Palácio da Justiça de POA',
-    coords: [-30.027704, -51.228734],
-    endereco: 'Av. Borges de Medeiros, 1565.',
-    bairro: 'Praia de Belas',
-    cep: 'CEP: 90119-900',
-    evento: 'ADV: Kallebe Max Almeida'
   }
 ];
 

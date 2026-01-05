@@ -48,7 +48,7 @@
       </div>
       <div class="cta-wrapper anim-item delay-5">
         <button class="btn-cta">
-          Fale com um advogado.
+          Fale com Dra. Yaciara Cavalcante
           <i class="fa-brands fa-whatsapp ml-2"></i>
         </button>
       </div>
