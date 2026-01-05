@@ -74,35 +74,35 @@ const EQUIPE_FOTOS = {
   azul: 'https://placehold.co/400x400/002b45/ffffff?text=ADVOGADO',
   vermelho: 'https://placehold.co/400x400/e4002b/ffffff?text=ADVOGADA'
 };
-const nomeadv = 'Dr. Yaciara Cavalcante'
+const nomeadv = 'Dr. Breno Martins '
 const equipe = [
   {
     nome: nomeadv,
-    cargo: 'Advogada  | Previdenciário',
+    cargo: 'Advogado  | Previdenciário',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
     foto: './IMGADV/1.png'
   },
   {
     nome: nomeadv,
-    cargo: 'Advogada | Extrajudicial',
+    cargo: 'Advogado | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
     foto: './IMGADV/2.png'
   },
   {
     nome: nomeadv,
-    cargo: 'Advogada | Família',
+    cargo: 'Advogado | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
     foto: './IMGADV/3.png'
   },
   {
     nome: nomeadv,
-    cargo: 'Advogada | Previdenciário',
+    cargo: 'Advogado | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-    foto: './IMGADV/1.png'
+    foto: './IMGADV/4.png'
   },
   {
     nome: nomeadv,
-    cargo: 'Advogada | especialista',
+    cargo: 'Advogado | especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
     foto: './IMGADV/2.png'
   }
