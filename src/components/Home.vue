@@ -57,7 +57,9 @@
         <i class="fa-solid fa-chevron-down bounce-icon"></i>
       </a>
     </div>
+    
   </section>
+  <Autoscroll />
 </template>
 
 <script setup>

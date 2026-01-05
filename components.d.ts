@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     Areas: typeof import('./src/components/Areas.vue')['default']
+    Autoscroll: typeof import('./src/components/autoscroll.vue')['default']
     Contatos: typeof import('./src/components/contatos.vue')['default']
     copy: typeof import('./src/components/LineAreas copy.vue')['default']
     Depoimentos: typeof import('./src/components/Depoimentos.vue')['default']
