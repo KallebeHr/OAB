@@ -1,7 +1,7 @@
 <template>
   <div class='container'>
 <div class="textWrapper">
-  <p class="text">Dr. <span class="highlight">Seu Nome</span></p>
+  <p class="text">Dr. <span class="highlight">Yaciara Cavalcante</span></p>
   <div class="invertbox"></div>
 </div>
 <img src="/LogoPNG.png" class="logoName" alt="">
