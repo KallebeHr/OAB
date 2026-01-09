@@ -5,7 +5,7 @@
         
         <!-- Coluna Esquerda: Logo e Redes Sociais -->
         <div class="footer-left">
-          <img  src="/LogoPNG4.png"  alt="" class="logo">
+          <img  src="/LogoPNG6].png"  alt="" class="logo">
           <p class="description">
             Soluções jurídicas personalizadas, com compromisso, ética e excelência para alcançar o melhor resultado.
           </p>
