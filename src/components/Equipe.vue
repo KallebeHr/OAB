@@ -73,37 +73,37 @@ const EQUIPE_FOTOS = {
   azul: 'https://placehold.co/400x400/002b45/ffffff?text=ADVOGADO',
   vermelho: 'https://placehold.co/400x400/e4002b/ffffff?text=ADVOGADA'
 };
-const nomeadv = 'Dr. Matheus Mendes'
+const nomeadv = 'Dr. Seu Nome'
 const equipe = [
   {
     nome: nomeadv,
     cargo: 'Advogado  | Previdenciário',
     descricao: 'Especialista em contencioso estratégico, com foco em resultados eficientes para o cliente.',
-    foto: './IMGADV/11.png'
+    foto: './IMGADV/1.jpg'
   },
   {
     nome: nomeadv,
     cargo: 'Advogado | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
-     foto: './IMGADV/11.png'
+     foto: './IMGADV/1.jpg'
   },
   {
     nome: nomeadv,
     cargo: 'Advogado | Família',
     descricao: 'Atuação sensível e técnica em questões de divórcio, inventário e guarda.',
-     foto: './IMGADV/11.png'
+     foto: './IMGADV/2.jpg'
   },
   {
     nome: nomeadv,
     cargo: 'Advogado | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-     foto: './IMGADV/11.png'
+     foto: './IMGADV/3.jpg'
   },
   {
     nome: nomeadv,
     cargo: 'Advogado | especialista',
     descricao: 'Comprometimento com a excelência e atendimento humanizado em todas as etapas.',
-     foto: './IMGADV/11.png'
+     foto: './IMGADV/4.jpg'
   }
 ];
 
@@ -163,7 +163,7 @@ function onSlideChange(swiper) {
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .equipe-section {
-  --primary-color: #01C3FF;
+  --primary-color: #e4002b;
   --secondary-color: #002b45;
   --bg-color: #f9f9f9; /* Mantendo o fundo claro */
   

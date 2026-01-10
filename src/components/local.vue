@@ -176,7 +176,7 @@ watch(localSelecionado, (novo) => {
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .locais-section {
-  --primary-color: #01C3FF; /* Vermelho - Ação Principal */
+  --primary-color: #e4002b; /* Vermelho - Ação Principal */
   --secondary-color: #002b45; /* Azul Escuro - Fundo/Informação */
   --bg-color: #f9f9f9; 
   padding: 4rem 1.5rem;

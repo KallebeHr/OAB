@@ -1,10 +1,10 @@
 <template>
   <div class='container'>
 <div class="textWrapper">
-  <p class="text">Dr. <span class="highlight">Matheus Mendes</span></p>
+  <p class="text">Dra. <span class="highlight">Adriana Juvina </span></p>
   <div class="invertbox"></div>
 </div>
-<img src="/LogoPNG7.png" class="logoName" alt="">
+<img src="/LogoPNG6].png" class="logoName" alt="">
 </div>
 </template>
 
@@ -43,7 +43,7 @@
   letter-spacing: -1px;
   margin-bottom: 0.5rem; /* Margem reduzida */
   text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  color:#01C3FF;
+  color: rgb(255, 0, 0);
 
 }
 .invertbox {

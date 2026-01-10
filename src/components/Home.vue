@@ -48,7 +48,7 @@
       </div>
       <div class="cta-wrapper anim-item delay-5">
         <button class="btn-cta">
-          Fale com Dr. Matheus Mendes.
+          Fale com Dra. Adriana Juvina.
  
           <i class="fa-brands fa-whatsapp ml-2"></i>
         </button>
@@ -83,7 +83,7 @@ onMounted(() => {
    🎨 CONFIGURAÇÕES GERAIS
    ========================================= */
 :root {
-  --primary-color: #01C3FF;
+  --primary-color: #e4002b;
   --dark-overlay: rgba(0, 43, 69, 0.65); /* Azul escuro semi-transparente */
 }
 
@@ -159,7 +159,7 @@ onMounted(() => {
 }
 
 .highlight {
-  color: #01C3FF;
+  color: #e4002b;
   position: relative;
   display: inline-block;
 }
@@ -167,7 +167,7 @@ onMounted(() => {
 .separator {
   width: 0;
   height: 4px; /* Mais fino */
-  background-color: #01C3FF;
+  background-color: #e4002b;
   margin: 0 auto 1.5rem auto; /* Margem reduzida */
   border-radius: 10px;
   animation: expandWidth 1s ease-out forwards;
@@ -216,14 +216,14 @@ onMounted(() => {
 }
 
 .icon-red {
-  color: #01C3FF;
+  color: #e4002b;
 }
 
 /* =========================================
    🔘 BOTÃO CTA
    ========================================= */
 .btn-cta {
-  background: #01C3FF;
+  background: #e4002b;
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -237,14 +237,13 @@ onMounted(() => {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 141, 223, 0.87);
+  box-shadow: 0 4px 15px rgba(228, 0, 43, 0.4);
 }
 
 .btn-cta:hover {
   transform: translateY(-3px) scale(1.02);
-  background-color: #01C3FF;
-  box-shadow: 0 4px 15px rgba(0, 141, 223, 0.87);
-
+  background-color: #c40025;
+  box-shadow: 0 10px 25px rgba(228, 0, 43, 0.6);
 }
 
 .ml-2 { margin-left: 10px; }
