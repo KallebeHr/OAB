@@ -41,7 +41,7 @@
 }
 
 .red {
-  background-color: #d73027; /* vermelho */
+  background-color: #01C3FF; /* vermelho */
 }
 
 .title {

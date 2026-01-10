@@ -115,7 +115,7 @@ const depoimentos = [
   top: 1rem;
   right: 1rem;
   font-size: 1.6rem;
-  color: #fc1f1f;
+  color: #01C3FF;
   opacity: 0.6;
 }
 .texto {

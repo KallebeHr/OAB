@@ -5,7 +5,7 @@
         
         <!-- Coluna Esquerda: Logo e Redes Sociais -->
         <div class="footer-left">
-          <img  src="/LogoPNG6].png"  alt="" class="logo">
+          <img  src="/LogoPNG7.png"  alt="" class="logo">
           <p class="description">
             Soluções jurídicas personalizadas, com compromisso, ética e excelência para alcançar o melhor resultado.
           </p>
@@ -93,7 +93,7 @@ onMounted(() => {
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .footer {
-  --primary-color: #e4002b; /* Vermelho */
+  --primary-color: #01C3FF; /* Vermelho */
   --secondary-color: #002b45; /* Azul Escuro (Fundo) */
   --light-text: #f5f5f5; /* Texto principal claro */
   --highlight-color: var(--primary-color);

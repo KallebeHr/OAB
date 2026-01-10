@@ -78,7 +78,7 @@ onMounted(() => {
    🎨 VARIÁVEIS LOCAIS
    ========================================= */
 .sobre-section {
-  --primary-color: #e4002b;
+  --primary-color: #01C3FF;
   --secondary-color: #002b45;
   --bg-color: #f9f9f9;
   --card-bg: #ffffff;

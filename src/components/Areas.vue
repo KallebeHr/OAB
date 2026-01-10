@@ -83,7 +83,7 @@ const areas = [
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .areas-section {
-  --primary-color: #e4002b; /* Vermelho - Destaque */
+  --primary-color: #01C3FF; /* Vermelho - Destaque */
   --secondary-color: #002b45; /* Azul Escuro - Texto principal */
   --bg-color: #f0f2f5; /* Fundo mais suave */
   padding: 4rem 1.5rem;

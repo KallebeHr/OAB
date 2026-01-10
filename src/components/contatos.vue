@@ -212,7 +212,7 @@ const submitForm = async () => {
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .contatos-section {
-  --primary-color: #e4002b; /* Vermelho - Destaque/Ação */
+  --primary-color: #01C3FF; /* Vermelho - Destaque/Ação */
   --secondary-color: #002b45; /* Azul Escuro - Texto/Estrutura */
   --bg-color: #ffffff; /* Fundo branco */
   padding: 5rem 1.5rem;
