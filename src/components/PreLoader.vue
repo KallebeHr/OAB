@@ -1,10 +1,10 @@
 <template>
   <div class='container'>
 <div class="textWrapper">
-  <p class="text">Dr. <span class="highlight">Marcelo Moreira</span></p>
+  <p class="text">Dra. <span class="highlight">Michely Gondim</span></p>
   <div class="invertbox"></div>
 </div>
-<img src="/LogoPNG10.png" class="logoName" alt="">
+<img src="/LogoPNG11.png" class="logoName" alt="">
 </div>
 </template>
 
