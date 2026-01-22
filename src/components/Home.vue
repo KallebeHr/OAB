@@ -48,7 +48,7 @@
       </div>
       <div class="cta-wrapper anim-item delay-5">
         <button class="btn-cta">
-          Fale com Dra. Michely Gondim.
+          Fale com Dr. Seu Nome
  
           <i class="fa-brands fa-whatsapp ml-2"></i>
         </button>
@@ -146,6 +146,7 @@ onMounted(() => {
   align-items: center;
   /* Garante que o conteúdo não cole nas bordas em telas muito baixas */
   justify-content: center; 
+  margin-top: 2.5rem;
 }
 
 .titulo {

@@ -25,11 +25,12 @@
       <v-list class="py-2">
         <v-list-item
           v-for="(item, index) in menuItems"
-          :key="index"
-          :value="item"
-          @click="drawer = false"
-          active-color="primary-custom"
-          class="mb-1 py-3"
+  :key="index"
+  :style="`--index: ${index}`"
+  :value="item"
+  @click="drawer = false"
+  active-color="primary-custom"
+  class="mb-1 py-3"
         >
           <template v-slot:prepend>
             <v-icon icon="mdi-chevron-right" color="primary-custom" size="small"></v-icon>
@@ -63,7 +64,7 @@
           -->
           <div class="d-flex d-md-none align-center">
 
-            <img  src="/LogoPNG11.png"   alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
+            <img  src="/LogoPNG.png"   alt="Logo MaxSistemas Mobile" class="logo-mobile ml-2">
           </div>
           
           <!-- NAVEGAÇÃO DESKTOP (Visível APENAS Desktop: d-none d-md-flex) -->
@@ -92,7 +93,7 @@
             <!-- LOGO (Só Desktop) -->
             <v-col cols="12" md="3" class="text-left d-flex align-center">
               <img 
-                src="/LogoPNG11.png" 
+                src="/LogoPNG.png" 
                 alt="Logo MaxSistemas" 
                 class="logo-desktop"
               >
@@ -292,19 +293,82 @@ transition: 0.1s;
 .font-heading { font-family: 'Montserrat', sans-serif !important; }
 .lh-tight { line-height: 1.2; }
 
-/* Ajuste fino para o Drawer ocupar a tela toda visualmente sem scroll interno estranho */
+/* ===== MENU HAMBÚRGUER MOBILE - MODERNO E ANIMADO ===== */
 .mobile-drawer {
   height: 100vh !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(14px);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
-/* ============================================ */
-/* ⬇️ ESPAÇADOR DE CONTEÚDO (Spacer) */
-/* Este div ocupa o espaço que o header fixo deixou. */
-/* É crucial para o layout não quebrar quando o header usa position: fixed. */
-.header-spacer {
-    /* Altura para Mobile (aprox. 60px da barra branca) */
-    height: 60px; 
-    width: 100%;
+.drawer-header {
+  background: linear-gradient(135deg, #e4002b, #b40022) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeSlideDown 0.5s ease;
+}
+
+.v-list {
+  padding-top: 12px !important;
+  animation: fadeSlideUp 0.6s ease;
+}
+
+.v-list-item {
+  border-radius: 12px;
+  margin: 8px 16px;
+  padding: 14px 16px !important;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-15px);
+  animation: fadeInMenuItem 0.4s ease forwards;
+  animation-delay: calc(var(--index) * 0.05s);
+}
+
+.v-list-item:hover {
+  background-color: rgba(228, 0, 43, 0.08);
+  transform: translateX(4px);
+}
+
+.v-list-item-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #002b45;
+  transition: color 0.2s ease;
+}
+
+.v-list-item:hover .v-list-item-title {
+  color: #e4002b;
+}
+
+.v-icon {
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.v-list-item:hover .v-icon {
+  transform: rotate(90deg);
+  color: #e4002b;
+}
+
+/* Animações */
+@keyframes fadeSlideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInMenuItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Altura para Desktop (aprox. 60px + 60px da barra vermelha = 120px, arredondando para 110px) */
