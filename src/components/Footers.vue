@@ -22,7 +22,6 @@
           </a>
         </div>
         
-        <!-- Coluna de Navegação: Mapa do Site -->
         <div class="footer-column">
           <h4>Mapa do Site</h4>
           <ul>
@@ -35,7 +34,6 @@
           </ul>
         </div>
         
-        <!-- Coluna de Informações Legais -->
         <div class="footer-column">
           <h4>Legal e Suporte</h4>
           <ul>
@@ -46,7 +44,6 @@
           </ul>
         </div>
 
-        <!-- Coluna de Informações de Contato (Repetição para Destacar) -->
         <div class="footer-column contact-info-quick">
           <h4>Contacto Rápido</h4>
           <ul>
@@ -59,7 +56,6 @@
       </div>
     </div>
 
-    <!-- Faixa de Direitos Autorais -->
     <div class="footer-bottom">
       <div class="container bottom-flex">
         <p>Copyright &copy; {{ new Date().getFullYear() }}. Max Sistemas. Todos os direitos reservados.</p>
@@ -72,7 +68,6 @@
 <script setup>
 import { onMounted } from 'vue';
 
-// Função para voltar ao topo da página
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -80,16 +75,11 @@ const scrollToTop = () => {
   });
 };
 
-// Certifica-se de que o Font Awesome está importado (embora já esteja no Contatos)
 onMounted(() => {
-    // Pode-se adicionar lógica de inicialização aqui se necessário.
 });
 </script>
 
 <style scoped>
-/* =========================================
-   🎨 VARIÁVEIS LOCAIS E IMPORTS
-   ========================================= */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 .footer {
