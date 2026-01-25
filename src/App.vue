@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <!-- <div v-if="!isLoaded"> -->
-      <PreLoader />
+      <!-- <PreLoader /> -->
     <!-- </div> -->
     <!-- <div v-else> -->
       <NavHeader/>
