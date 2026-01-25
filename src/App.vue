@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <!-- <div v-if="!isLoaded"> -->
-      <!-- <PreLoader /> -->
-    <!-- </div> -->
-    <!-- <div v-else> -->
+    <div v-if="!isLoaded">
+      <PreLoader />
+    </div>
+    <div v-else>
       <NavHeader/>
       <router-view />
-    <!-- </div> -->
+    </div>
     <VLibras position="right" />
   </v-app>
 </template>
