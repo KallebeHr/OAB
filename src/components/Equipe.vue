@@ -73,7 +73,7 @@ const EQUIPE_FOTOS = {
   azul: 'https://placehold.co/400x400/002b45/ffffff?text=ADVOGADO',
   vermelho: 'https://placehold.co/400x400/e4002b/ffffff?text=ADVOGADA'
 };
-const nomeadv = 'Dra. Emiliana Virgínia'
+const nomeadv = 'Dra. Dafne Dias'
 const equipe = [
   {
     nome: nomeadv,
@@ -85,7 +85,7 @@ const equipe = [
     nome: nomeadv,
     cargo: 'Advogada | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
-    foto: './IMGADV/22.png'
+    foto: './IMGADV/11.png'
 
   },
   {
@@ -99,7 +99,7 @@ const equipe = [
     nome: nomeadv,
     cargo: 'Advogada | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-    foto: './IMGADV/22.png'
+    foto: './IMGADV/11.png'
 
   },
   {

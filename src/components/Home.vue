@@ -48,8 +48,7 @@
       </div>
       <div class="cta-wrapper anim-item delay-5">
         <button class="btn-cta">
-          Fale com a  Dra. Emiliana Virgínia.
- 
+          Fale com a  Dra. Dafne Dias.
           <i class="fa-brands fa-whatsapp ml-2"></i>
         </button>
       </div>
