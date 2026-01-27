@@ -73,7 +73,7 @@ const EQUIPE_FOTOS = {
   azul: 'https://placehold.co/400x400/002b45/ffffff?text=ADVOGADO',
   vermelho: 'https://placehold.co/400x400/e4002b/ffffff?text=ADVOGADA'
 };
-const nomeadv = 'Dr. Daniele Silva'
+const nomeadv = 'Dra. Emiliana Virgínia'
 const equipe = [
   {
     nome: nomeadv,
