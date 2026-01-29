@@ -85,7 +85,7 @@ const equipe = [
     nome: nomeadv,
     cargo: 'Advogado | Extrajudicial',
     descricao: 'Vasta experiência em negociações coletivas e defesas em ações complexas.',
-    foto: './IMGADV/11.png'
+    foto: './IMGADV/22.png'
 
   },
   {
@@ -99,7 +99,7 @@ const equipe = [
     nome: nomeadv,
     cargo: 'Advogado | Previdenciário',
     descricao: 'Foco na prevenção de litígios e estruturação jurídica para startups e empresas.',
-    foto: './IMGADV/11.png'
+    foto: './IMGADV/22.png'
 
   },
   {
