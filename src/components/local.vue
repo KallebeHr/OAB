@@ -104,7 +104,7 @@ const locais = [
     endereco: 'Praça da Sé, 385.',
     bairro: 'Centro',
     cep: '01001-000',
-    evento: 'Advocacia: Dafne Dias'
+    evento: 'Advocacia: Rafael Ferreira'
   },
   {
     cidade:'Rio de Janeiro - RJ',
@@ -113,7 +113,7 @@ const locais = [
     endereco: 'Av. Erasmo Braga, 115.',
     bairro: 'Centro',
     cep: '20020-903',
-    evento: 'Advocacia: Dafne Dias'
+    evento: 'Advocacia: Rafael Ferreira'
   }
 ];
 
