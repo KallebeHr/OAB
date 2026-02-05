@@ -25,6 +25,6 @@ const app = createApp(App)
 registerPlugins(app)
 
 // Registrar VLibras
-app.use(VLibras)
+app.use(VLibras) 
 
 app.mount('#app')
